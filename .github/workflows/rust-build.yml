@@ -7,9 +7,17 @@ on:
 
 jobs:
   rust_build:
-    runs-on: ubuntu-latest-32-cores
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: List contents of cache directories
+        run: |
+          ls -al ~/.cargo/bin/
+          ls -al ~/.cargo/registry/index/
+          ls -al ~/.cargo/registry/cache/
+          ls -al ~/.cargo/git/db/
+          ls -al target/
 
       - name: Retrieve cached build
         id: cache
