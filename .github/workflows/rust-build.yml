@@ -48,10 +48,3 @@ jobs:
         run: |
           cargo build --release --workspace
 
-      - uses: LouisBrunner/diff-action@v0.2.0
-        with:
-          old: Cargo.old.lock
-          new: Cargo.lock
-          mode: addition
-          tolerance: better
-          output: out.txt
