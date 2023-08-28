@@ -39,3 +39,7 @@ jobs:
       - name: List contents of cache directories
         run: |
           ls -al target/
+          echo "match all"
+          ls ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          echo "do not match all"
+          ls ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
