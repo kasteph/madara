@@ -2,6 +2,8 @@
 
 ## Next release
 
+- ci: scope cache by branch and add cache cleanup
+
 ## v0.2.0
 
 - add-contributors: `0xAsten`, `m-kus`, `joaopereira12`
@@ -23,9 +25,6 @@
 - fix: replace the 0 initial gas value with u128::MAX because view call
   entrypoints were failing
 - chore: remove global state root
-- chore: cairo-contracts compilation scripts & docs are updated, cairo_0
-  contracts recompiled
-- chore: rebase of core deps and 0.12.1
 
 ## v0.1.0
 
