@@ -30,6 +30,12 @@ jobs:
       - name: find workspace post cache
         run: |
           find "$GITHUB_WORKSPACE" -name "Cargo.lock"
+          echo "match all"
+          echo ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          echo "match one"
+          ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+          echo "match from ."
+          ${{ runner.os }}-cargo-${{ hashFiles('./**/Cargo.lock') }}
 
       - name: Setup rust toolchain
         if: steps.cache.outputs.cache-hit != 'true'
