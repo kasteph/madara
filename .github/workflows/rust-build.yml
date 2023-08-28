@@ -13,10 +13,6 @@ jobs:
 
       - name: List contents of cache directories
         run: |
-          ls -al ~/.cargo/bin/
-          ls -al ~/.cargo/registry/index/
-          ls -al ~/.cargo/registry/cache/
-          ls -al ~/.cargo/git/db/
           ls -al target/
 
       - name: Retrieve cached build
