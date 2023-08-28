@@ -34,8 +34,6 @@ jobs:
           echo ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           echo "match one"
           ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
-          echo "match from ."
-          echo ${{ runner.os }}-cargo-${{ hashFiles('./**/Cargo.lock') }}
 
       - name: Setup rust toolchain
         if: steps.cache.outputs.cache-hit != 'true'
