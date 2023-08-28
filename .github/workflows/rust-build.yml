@@ -11,10 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: List contents of cache directories
-        run: |
-          ls -al target/
-
       - name: Retrieve cached build
         id: cache
         uses: actions/cache@v3
@@ -39,3 +35,7 @@ jobs:
       - name: Build the project
         run: |
           cargo build --release --workspace
+
+      - name: List contents of cache directories
+        run: |
+          ls -al target/
