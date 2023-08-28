@@ -7,9 +7,13 @@ on:
 
 jobs:
   rust_build:
-    runs-on: ubuntu-latest-32-cores
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: find workspace pre cache
+        run: |
+          find "$GITHUB_WORKSPACE" -name "Cargo.lock"
 
       - name: Retrieve cached build
         id: cache
@@ -22,6 +26,10 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: find workspace post cache
+        run: |
+          find "$GITHUB_WORKSPACE" -name "Cargo.lock"
 
       - name: Setup rust toolchain
         if: steps.cache.outputs.cache-hit != 'true'
