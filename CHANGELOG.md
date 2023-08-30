@@ -2,6 +2,8 @@
 
 ## Next release
 
+- fix: estimate_fee should make sure all transaction have a version being
+  2^128 + 1 or 2^128+2 depending on the tx type
 - ci: scope cache by branch and add cache cleanup
 
 ## v0.2.0
